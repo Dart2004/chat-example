@@ -22,8 +22,8 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
+      var socket = io();
       $(function () {
-        var socket = io();
         $('form').submit(function(){
           socket.emit('chat message', $('#m').val());
           $('#m').val('');
@@ -39,6 +39,11 @@
           window.scrollTo(0, document.body.scrollHeight);
         });
       });
+      window.onclose = function(){
+          socket.emit('chat message', 'User left the chat');
+          return false;
+        };
+      
     </script>
   </body>
 </html>
