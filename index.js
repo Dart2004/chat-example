@@ -10,6 +10,16 @@ app.get('/', function(req, res){
 io.on('connection', function(socket){
   io.emit('chat message', "New User joined the chat");
   socket.on('chat message', function(msg){
+    msg=msg.replace(":)","😀");
+    msg=msg.replace(":(","😟");
+    msg=msg.replace(":|","😐");
+    msg=msg.replace(";)","😉");
+    msg=msg.replace(";(","😭");
+    msg=msg.replace(":smile:","😀");
+    msg=msg.replace(":frown:","😟");
+    msg=msg.replace(":neutral:","😐");
+    msg=msg.replace(":wink:","😉");
+    msg=msg.replace(":cry:","😭");
     io.emit('chat message', msg);
   });
 });
