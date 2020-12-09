@@ -31,6 +31,11 @@
         });
         socket.on('chat message', function(msg){
           $('#messages').append($('<li>').text(msg));
+          var chat = document.getElementById("messages");
+          for (letter in msg){
+            chat.innerHTML = chat.innerHTML.replace("//*","<font size='5'>").replace("*//","</font>");
+            chat.innerHTML = chat.innerHTML.replace("````","<b>");
+          }
           window.scrollTo(0, document.body.scrollHeight);
         });
       });
