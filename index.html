@@ -14,7 +14,7 @@
       #messages { margin-bottom: 40px }
     </style>
   </head>
-  <body>
+  <body onunload="close()">
     <ul id="messages"></ul>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
@@ -39,7 +39,7 @@
           window.scrollTo(0, document.body.scrollHeight);
         });
       });
-      window.onclose = function(){
+      function close(){
           socket.emit('chat message', 'User left the chat');
           return false;
         };
