@@ -35,6 +35,7 @@
           for (letter in msg){
             chat.innerHTML = chat.innerHTML.replace("//*","<font size='5'>").replace("*//","</font>");
             chat.innerHTML = chat.innerHTML.replace("````","<font face='MV Boli'>");
+            chat.innerHTML = chat.innerHTML.replace("[[","<img style='max-width:30px; max-height:30px;' src='").replace("]]","'>");
           }
           window.scrollTo(0, document.body.scrollHeight);
         });
